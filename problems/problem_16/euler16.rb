@@ -6,7 +6,7 @@ power = ARGV[0].to_i
 
 sum = 0
 ((2**power).to_s.split("")).each do |i|
-	sum += i.to_i
+  sum += i.to_i
 end
 
 puts sum.to_s

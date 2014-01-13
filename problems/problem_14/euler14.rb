@@ -20,15 +20,15 @@
 # longest_n = 1
 # chain = 0
 # 
-# 	collatz chain (starting number n)
-# 		
-# 		while n > 1
-# 			if n is odd
-# 				n = n*3 + 1
-# 			else if n is even
-# 				n = n/2
-# 			end if
-# 			chain++
+#   collatz chain (starting number n)
+#     
+#     while n > 1
+#       if n is odd
+#         n = n*3 + 1
+#       else if n is even
+#         n = n/2
+#       end if
+#       chain++
 
 limit = ARGV[0].to_i
 
@@ -37,24 +37,24 @@ i = 1
 longest_chain = 0
 longest_start = 1
 while i < limit
-	n = i
-	chain = 1
-	#print "#{i}"
-	while n > 1
-		if n.even?
-			n = n / 2
-		else
-			n = (n * 3) + 1
-		end
-		#print "->#{n}"
-		chain += 1
-	end
-	if chain > longest_chain
-		longest_chain = chain
-		longest_start = i
-	end
-	i += 1
-	#puts "#{i}\tchain: #{chain}"
+  n = i
+  chain = 1
+  #print "#{i}"
+  while n > 1
+    if n.even?
+      n = n / 2
+    else
+      n = (n * 3) + 1
+    end
+    #print "->#{n}"
+    chain += 1
+  end
+  if chain > longest_chain
+    longest_chain = chain
+    longest_start = i
+  end
+  i += 1
+  #puts "#{i}\tchain: #{chain}"
 end
 
 puts "Longest starting n: #{longest_start}\tchain:#{longest_chain}"

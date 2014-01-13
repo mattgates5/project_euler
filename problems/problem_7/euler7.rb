@@ -6,15 +6,15 @@ require 'prime'
 
 n = ARGV[0].to_i
 if n.zero?
-	abort("Numeric input expected")
+  abort("Numeric input expected")
 end
 
 i=0
 p=2
 while i < n
-	if p.prime?
-		puts p.to_s
-		i += 1
-	end
-	p += 1
+  if p.prime?
+    puts p.to_s
+    i += 1
+  end
+  p += 1
 end

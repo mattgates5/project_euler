@@ -6,11 +6,11 @@
 # Find the sum of the digits in the number 100!
 
 def factorial(n)
-	f = 1
-	(1..n).each do |i|
-		f *= i
-	end
-	f
+  f = 1
+  (1..n).each do |i|
+    f *= i
+  end
+  f
 end
 
 n = ARGV[0].to_i
@@ -19,7 +19,7 @@ s = factorial(n).to_s
 
 sum = 0
 s.split("").each do |x|
-	sum += x.to_i
+  sum += x.to_i
 end
 
 puts sum.to_s

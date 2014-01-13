@@ -13,19 +13,19 @@ require 'prime'
 
 n = ARGV[0].to_i
 if n.zero?
-	abort("Numeric input expected")
+  abort("Numeric input expected")
 end
 
 f = 0
 2.step(n,1).each do |x|
-	if (n == 1)
-		break
-	end
-	if (x.prime? && (n % x == 0))
-		f = x
-		n /= x
-		#puts n.to_s
-	end
+  if (n == 1)
+    break
+  end
+  if (x.prime? && (n % x == 0))
+    f = x
+    n /= x
+    #puts n.to_s
+  end
 end
 
 puts f.to_s

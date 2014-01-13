@@ -9,19 +9,19 @@
 # Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
 def sum_squares(maximum)
-	sum = 0
-	1.step(maximum, 1).each do |n|
-		sum += (n**2)
-	end
-	return sum
+  sum = 0
+  1.step(maximum, 1).each do |n|
+    sum += (n**2)
+  end
+  return sum
 end
 
 def square_sums(maximum)
-	sum = 0
-	1.step(maximum, 1).each do |n|
-		sum += n
-	end
-	return (sum**2)
+  sum = 0
+  1.step(maximum, 1).each do |n|
+    sum += n
+  end
+  return (sum**2)
 end
 
 n = ARGV[0].to_i

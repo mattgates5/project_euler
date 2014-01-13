@@ -10,24 +10,24 @@
 # Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 
 def powersum(n, p)
-	sum = 0
-	n.to_s.split("").each do |x|
-		sum += (x.to_i**p)
-	end
-	sum
+  sum = 0
+  n.to_s.split("").each do |x|
+    sum += (x.to_i**p)
+  end
+  sum
 end
 
 numbers = []
 (10**6).times do |n|
-	if n == powersum(n, 5)
-		puts n.to_s
-		numbers.push(n)
-	end
+  if n == powersum(n, 5)
+    puts n.to_s
+    numbers.push(n)
+  end
 end
 
 sum = 0
 numbers.each do |n|
-	sum += n
+  sum += n
 end
 
 sum -= 1

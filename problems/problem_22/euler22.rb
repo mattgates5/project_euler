@@ -8,18 +8,18 @@
 # What is the total of all the name scores in the file?
 
 def string_score(string)
-	score = 0
-	string.split('').each do |n|
-		score += n.ord - 64
-	end
-	score
+  score = 0
+  string.split('').each do |n|
+    score += n.ord - 64
+  end
+  score
 end
 
 names = File.open('names.txt').read.gsub(/\"/,'').split(',').sort
 
 score = 0
 names.each do |n|
-	score += (names.index(n)+1) * string_score(n)
+  score += (names.index(n)+1) * string_score(n)
 end
 
 puts score.to_s

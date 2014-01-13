@@ -7,47 +7,47 @@
 # Evaluate the sum of all the amicable numbers under 10000.
 
 # def get_factors(n)
-# 	f = []
-# 	f.push(1)
-# 	f.push(220)
-# 	2.step(Math.sqrt(n).to_i, 1).each do |x|
-# 		if (n % x == 0)
-# 			f.push(x)
-# 		end
-# 	end
-# 	return f.sort
+#   f = []
+#   f.push(1)
+#   f.push(220)
+#   2.step(Math.sqrt(n).to_i, 1).each do |x|
+#     if (n % x == 0)
+#       f.push(x)
+#     end
+#   end
+#   return f.sort
 # end
 
 def proper_factors(n)
-	f = []
-	1.step((n/2).to_i, 1).each do |x|
-		if n % x == 0
-			f.push(x)
-		end
-	end
-	return f.sort
+  f = []
+  1.step((n/2).to_i, 1).each do |x|
+    if n % x == 0
+      f.push(x)
+    end
+  end
+  return f.sort
 end
 
 def summation(f)
-	sum = 0
-	f.each do |n|
-		sum += n
-	end
-	sum
+  sum = 0
+  f.each do |n|
+    sum += n
+  end
+  sum
 end
 
 def d(n)
-	return summation(proper_factors(n))
+  return summation(proper_factors(n))
 end
 
 limit = ARGV[0].to_i
 
 amicable = []
 1.step(limit, 1).each do |a|
-	b = d(a)
-	if (d(b) == a) && (a != b)
-		amicable.push(a)
-	end
+  b = d(a)
+  if (d(b) == a) && (a != b)
+    amicable.push(a)
+  end
 end
 
 puts amicable

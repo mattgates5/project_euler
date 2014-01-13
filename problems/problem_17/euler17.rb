@@ -11,14 +11,14 @@ require 'linguistics'
 Linguistics.use( :en )
 
 def letter_count(str)
-	return str.gsub(/[\s+|\W]/,"").length
+  return str.gsub(/[\s+|\W]/,"").length
 end
 
 sum = 0
 (1..1000).each do |n|
-	name = n.en.numwords
-	puts "#{name}"
-	sum += letter_count(name)
+  name = n.en.numwords
+  puts "#{name}"
+  sum += letter_count(name)
 end
 
 puts sum.to_s

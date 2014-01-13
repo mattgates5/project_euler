@@ -7,7 +7,7 @@ data = File.open("euler13_data")
 
 bigsum = 0
 data.each do |line|
-	bigsum += line.to_i
+  bigsum += line.to_i
 end
 
 bigstr = bigsum.to_s

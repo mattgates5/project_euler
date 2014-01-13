@@ -5,8 +5,8 @@ succ = 1
 i = 0
 
 while curr.to_s.length < 1000
-	curr, succ = succ, curr + succ
-	i += 1
+  curr, succ = succ, curr + succ
+  i += 1
 end
 
 puts "F#{i} is #{curr} at #{curr.to_s.length}"

@@ -27,107 +27,107 @@
 require 'matrix'
 
 def create_matrix(path)
-	data = File.open(path).read
-	cols = data.lines.first.split(" ").length
-	rows = data.lines.count
-	return Matrix.build(rows, cols) { |row, col| data.split("\n")[row].split(" ")[col].to_i }
+  data = File.open(path).read
+  cols = data.lines.first.split(" ").length
+  rows = data.lines.count
+  return Matrix.build(rows, cols) { |row, col| data.split("\n")[row].split(" ")[col].to_i }
 end
 
 def parse_vertical(matrix)
-	cols = matrix.column_count
-	rows = matrix.row_count
-	greatest = 0
-	i = 0
-	while i < rows
-		j = 0
-		j2 = j + 4
-		while j2 < cols
-			product = 1
-			(j...j2).each do |jx|
-				product *= matrix[i,jx]
-			end
-			if product > greatest
-				greatest = product
-			end
-			j += 1
-			j2 = j + 4
-		end
-		i += 1
-	end
-	return greatest
+  cols = matrix.column_count
+  rows = matrix.row_count
+  greatest = 0
+  i = 0
+  while i < rows
+    j = 0
+    j2 = j + 4
+    while j2 < cols
+      product = 1
+      (j...j2).each do |jx|
+        product *= matrix[i,jx]
+      end
+      if product > greatest
+        greatest = product
+      end
+      j += 1
+      j2 = j + 4
+    end
+    i += 1
+  end
+  return greatest
 end
 
 def parse_horizontal(matrix)
-	cols = matrix.column_count
-	rows = matrix.row_count
-	greatest = 0
-	j = 0
-	while j < cols
-		i = 0
-		i2 = i + 4
-		while i2 < rows
-			product = 1
-			(i...i2).each do |ix|
-				product *= matrix[ix,j]
-			end
-			if product > greatest
-				greatest = product
-			end
-			i += 1
-			i2 = i + 4
-		end
-		j += 1
-	end
-	return greatest
+  cols = matrix.column_count
+  rows = matrix.row_count
+  greatest = 0
+  j = 0
+  while j < cols
+    i = 0
+    i2 = i + 4
+    while i2 < rows
+      product = 1
+      (i...i2).each do |ix|
+        product *= matrix[ix,j]
+      end
+      if product > greatest
+        greatest = product
+      end
+      i += 1
+      i2 = i + 4
+    end
+    j += 1
+  end
+  return greatest
 end
 
 def parse_rdiagonal(matrix)
-	cols = matrix.column_count
-	rows = matrix.row_count
-	greatest = 0
-	i = 0
-	while (i + 3) < rows
-		j = 0
-		while (j + 3) < cols
-			product = 1
-			(0..3).each do |x|
-				product *= matrix[i + x, j + x]
-			end
-			if product > greatest
-				greatest = product
-			end
-			j += 1
-		end
-		i += 1
-	end
-	return greatest
+  cols = matrix.column_count
+  rows = matrix.row_count
+  greatest = 0
+  i = 0
+  while (i + 3) < rows
+    j = 0
+    while (j + 3) < cols
+      product = 1
+      (0..3).each do |x|
+        product *= matrix[i + x, j + x]
+      end
+      if product > greatest
+        greatest = product
+      end
+      j += 1
+    end
+    i += 1
+  end
+  return greatest
 end
 
 def parse_ldiagonal(matrix)
-	cols = matrix.column_count
-	rows = matrix.row_count
-	greatest = 0
-	i = 3
-	while i < rows
-		j = 0
-		while j < (cols - 3)
-			product = 1
-			(0..3).each do |x|
-				product *= matrix[i - x, j + x]
-			end
-			if product > greatest
-				greatest = product
-			end
-			j += 1
-		end
-		i += 1
-	end
-	return greatest
+  cols = matrix.column_count
+  rows = matrix.row_count
+  greatest = 0
+  i = 3
+  while i < rows
+    j = 0
+    while j < (cols - 3)
+      product = 1
+      (0..3).each do |x|
+        product *= matrix[i - x, j + x]
+      end
+      if product > greatest
+        greatest = product
+      end
+      j += 1
+    end
+    i += 1
+  end
+  return greatest
 end
 
 matrix = create_matrix("euler11_data")
 
-puts "Up/down:\t\t" 		+	parse_vertical(matrix).to_s
-puts "Left/right:\t\t" 		+	parse_horizontal(matrix).to_s
-puts "Right diagonal:\t\t" 	+	parse_rdiagonal(matrix).to_s
-puts "Left diagonal:\t\t" 	+   parse_ldiagonal(matrix).to_s
+puts "Up/down:\t\t"     +  parse_vertical(matrix).to_s
+puts "Left/right:\t\t"     +  parse_horizontal(matrix).to_s
+puts "Right diagonal:\t\t"   +  parse_rdiagonal(matrix).to_s
+puts "Left diagonal:\t\t"   +   parse_ldiagonal(matrix).to_s

@@ -19,39 +19,39 @@
 require 'prime'
 
 def qexp(n, a, b)
-	return ((n**2) + (a*n) + b)
+  return ((n**2) + (a*n) + b)
 end
 
 def count_consecutive_primes(a, b)
-	count = 0
-	n = 0
-	while true
-		r = qexp(n, a, b)
-		if !r.prime?
-			break
-		end
-		count += 1
-		n += 1
-	end
-	return count
+  count = 0
+  n = 0
+  while true
+    r = qexp(n, a, b)
+    if !r.prime?
+      break
+    end
+    count += 1
+    n += 1
+  end
+  return count
 end
 
 
 def find_maxprime_coefficient(limit)
-	result = [0,0,0]
-	ubound = limit - 1
-	lbound = ubound * -1
-	lbound.step(ubound, 1).each do |a|
-		lbound.step(ubound, 1).each do |b|
-			count = count_consecutive_primes(a, b)
-			print "\r\e n²+#{a}n+#{b}\t#{count}"
-			if count > result[0]
-				result = [count, a, b]
-			end
-		end
-	end
-	print "\n"
-	return result
+  result = [0,0,0]
+  ubound = limit - 1
+  lbound = ubound * -1
+  lbound.step(ubound, 1).each do |a|
+    lbound.step(ubound, 1).each do |b|
+      count = count_consecutive_primes(a, b)
+      print "\r\e n²+#{a}n+#{b}\t#{count}"
+      if count > result[0]
+        result = [count, a, b]
+      end
+    end
+  end
+  print "\n"
+  return result
 end
 
 l = ARGV[0].to_i

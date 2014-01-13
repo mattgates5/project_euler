@@ -4,11 +4,11 @@
 
 ## Pascal's formula (2n n) = (2n)!/n!^2
 def factorial(n)
-	f = 1
-	(1..n).each do |i|
-		f *= i
-	end
-	f
+  f = 1
+  (1..n).each do |i|
+    f *= i
+  end
+  f
 end
 
 # Number of vertices
@@ -17,9 +17,9 @@ end
 n = ARGV[0].to_i
 
 def pascal(n)
-	numerator = factorial(2*n)
-	denominator = factorial(n)**2
-	return numerator / denominator
+  numerator = factorial(2*n)
+  denominator = factorial(n)**2
+  return numerator / denominator
 end
 
 puts pascal(n).to_i

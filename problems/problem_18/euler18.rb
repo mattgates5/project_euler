@@ -29,40 +29,40 @@
 # However, Problem 67, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 
 def matrix(data)
-	matrix = []
-	data.lines.each do |l|
-		a = []
-		l.split.each do |i|
-			a.push(i.to_i)
-		end
-		puts a
-		matrix.push(a)
-	end
-	return matrix
+  matrix = []
+  data.lines.each do |l|
+    a = []
+    l.split.each do |i|
+      a.push(i.to_i)
+    end
+    puts a
+    matrix.push(a)
+  end
+  return matrix
 end
 
 def maxpathsum(matrix)
-	if matrix.length == 1
-		return matrix[0][0]
-	end
-	last_line = []
-	i = matrix.length - 2
-	j = 0
-	while (j < matrix[i].length)
-		current = matrix[i][j]
-		down = matrix[i+1][j]
-		right = matrix[i+1][j+1]
-		if down > right
-			last_line.push(current + down)
-		else
-			last_line.push(current + right)
-		end
-		j += 1
-	end
-	matrix.pop
-	matrix.pop
-	matrix.push(last_line)
-	return maxpathsum(matrix)
+  if matrix.length == 1
+    return matrix[0][0]
+  end
+  last_line = []
+  i = matrix.length - 2
+  j = 0
+  while (j < matrix[i].length)
+    current = matrix[i][j]
+    down = matrix[i+1][j]
+    right = matrix[i+1][j+1]
+    if down > right
+      last_line.push(current + down)
+    else
+      last_line.push(current + right)
+    end
+    j += 1
+  end
+  matrix.pop
+  matrix.pop
+  matrix.push(last_line)
+  return maxpathsum(matrix)
 end
 
 data = File.open('euler18_data').read

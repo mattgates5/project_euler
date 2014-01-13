@@ -10,17 +10,17 @@ require 'prime'
 
 m = ARGV[0].to_i
 if m.zero?
-	abort("Numeric input expected")
+  abort("Numeric input expected")
 end
 
 p = 7
 sum = 0
 while p < m
-	if p.prime?
-		puts p.to_s
-		sum += p
-	end
-	p += 2
+  if p.prime?
+    puts p.to_s
+    sum += p
+  end
+  p += 2
 end
 
 sum += (2 + 3 + 5)

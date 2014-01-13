@@ -7,32 +7,32 @@
 require 'prime'
 
 def rotate(n)
-	n = n[1..(n.length)] + n[0]
-	return n
+  n = n[1..(n.length)] + n[0]
+  return n
 end
 
 def rotations(n)
-	l = []
-	len = n.to_s.length
-	(0...len).each do |i|
-		n = rotate(n)
-		l.push(n)
-	end
-	l.sort
+  l = []
+  len = n.to_s.length
+  (0...len).each do |i|
+    n = rotate(n)
+    l.push(n)
+  end
+  l.sort
 end
 
 def primal(n)
-	if n == 2
-		return true
-	end
+  if n == 2
+    return true
+  end
 
-	if n % 2 == 0
-		return false
-	end
+  if n % 2 == 0
+    return false
+  end
 
-	if n.prime?
-		return true
-	end
+  if n.prime?
+    return true
+  end
 end
 
 # For each number from 0 to 1M inclusive
@@ -41,25 +41,25 @@ end
 #    if all rotations are prime then post to the array
 
 def circular_primes(limit, debug)
-	circular = []
-	(0..(limit)).each do |n|
-		#if n.prime?
-		if primal(n)
-			r = rotations(n.to_s)
-			rp = true
-			r.each do |rn|
-				if !rn.to_i.prime?
-					rp = false
-					break
-				end
-			end
-			if rp
-				circular.push(n)
-				if debug
-					print "\r#{n}"
-				end
-			end
-		end
-	end
-	circular
+  circular = []
+  (0..(limit)).each do |n|
+    #if n.prime?
+    if primal(n)
+      r = rotations(n.to_s)
+      rp = true
+      r.each do |rn|
+        if !rn.to_i.prime?
+          rp = false
+          break
+        end
+      end
+      if rp
+        circular.push(n)
+        if debug
+          print "\r#{n}"
+        end
+      end
+    end
+  end
+  circular
 end

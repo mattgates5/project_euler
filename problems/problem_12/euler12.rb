@@ -23,21 +23,21 @@ limit = ARGV[0].to_i
 i = 1
 sum = 0
 while true
-	sum += i
-	factors = 0
-	#lfactor = 0
-	if sum.prime?
-		i += 1
-		next
-	end
-	1.step(Math.sqrt(sum).to_i, 1).each do |n|
-		if (sum % n == 0)
-			factors += 2
-		end
-	end
-	if (factors > limit)
-		abort("Triangle number #{sum} has #{factors}, #{factors-limit} over the limit #{limit}")
-	end
-	puts "#{i}\t\t#{sum}\t\t#{factors}"
-	i += 1
+  sum += i
+  factors = 0
+  #lfactor = 0
+  if sum.prime?
+    i += 1
+    next
+  end
+  1.step(Math.sqrt(sum).to_i, 1).each do |n|
+    if (sum % n == 0)
+      factors += 2
+    end
+  end
+  if (factors > limit)
+    abort("Triangle number #{sum} has #{factors}, #{factors-limit} over the limit #{limit}")
+  end
+  puts "#{i}\t\t#{sum}\t\t#{factors}"
+  i += 1
 end

@@ -13,17 +13,17 @@
 grid = ARGV[0].to_i
 
 def diagonal_sum(grid)
-	sum = 1
-	n = 1
-	i = 2
-	while i < grid 
-		4.times do
-			n += i
-			sum += n
-		end
-		i += 2
-	end
-	return sum
+  sum = 1
+  n = 1
+  i = 2
+  while i < grid 
+    4.times do
+      n += i
+      sum += n
+    end
+    i += 2
+  end
+  return sum
 end
 
 puts "#{diagonal_sum(grid)}"

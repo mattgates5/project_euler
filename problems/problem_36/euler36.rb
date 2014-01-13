@@ -5,28 +5,28 @@
 # (Please note that the palindromic number, in either base, may not include leading zeros.)
 
 def palindrome(s)
-	s == s.reverse
+  s == s.reverse
 end
 
 def double_base_palindrome(n)
-	palindrome(n.to_s) && palindrome(n.to_s(2))
+  palindrome(n.to_s) && palindrome(n.to_s(2))
 end
 
 def summation(f)
-	sum = 0
-	f.each do |n|
-		sum += n
-	end
-	sum
+  sum = 0
+  f.each do |n|
+    sum += n
+  end
+  sum
 end
 
 def find_sum_dbp(limit)
-	l = []
-	(0..limit).each do |n|
-		if double_base_palindrome(n)
-			l.push(n)
-		end
-	end
+  l = []
+  (0..limit).each do |n|
+    if double_base_palindrome(n)
+      l.push(n)
+    end
+  end
 
-	summation(l)
+  summation(l)
 end

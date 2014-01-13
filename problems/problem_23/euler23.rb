@@ -11,66 +11,66 @@
 # Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 
 def proper_factors(n)
-	f = []
-	1.step((n/2).to_i, 1).each do |x|
-		if n % x == 0
-			f.push(x)
-		end
-	end
-	f.sort
+  f = []
+  1.step((n/2).to_i, 1).each do |x|
+    if n % x == 0
+      f.push(x)
+    end
+  end
+  f.sort
 end
 
 def summation(f)
-	sum = 0
-	f.each do |n|
-		sum += n
-	end
-	sum
+  sum = 0
+  f.each do |n|
+    sum += n
+  end
+  sum
 end
 
 def abundant?(n)
-	summation(proper_factors(n)) > n
+  summation(proper_factors(n)) > n
 end
 
 def gen_abundant_numbers(limit)
-	ab = []
-	puts "generating abundant numbers"
-	(1..limit).each do |n|
-		print "\r#{n}"
-		if abundant?(n)
-			ab.push(n)
-		end
-	end
-	print "\r#{ab.length} numbers found\n"
-	return ab
+  ab = []
+  puts "generating abundant numbers"
+  (1..limit).each do |n|
+    print "\r#{n}"
+    if abundant?(n)
+      ab.push(n)
+    end
+  end
+  print "\r#{ab.length} numbers found\n"
+  return ab
 end
 
 def gen_ab_sums(abn, limit)
-	sums = []
-	i = 0
-	while i < abn.length
-		j = i
-		while j < abn.length
-			sum = abn[i] + abn[j]
-			if sum > limit
-				break
-			end
-			sums.push(sum)
-			j += 1
-		end
-		i += 1
-	end
-	return sums.sort.uniq
+  sums = []
+  i = 0
+  while i < abn.length
+    j = i
+    while j < abn.length
+      sum = abn[i] + abn[j]
+      if sum > limit
+        break
+      end
+      sums.push(sum)
+      j += 1
+    end
+    i += 1
+  end
+  return sums.sort.uniq
 end
 
 def sum_non_abundant(sums, limit)
-	sum = 0
-	(1..limit).each do |n|
-		if sums.index(n).nil?
-			sum += n
-		end
-	end
-	return sum
+  sum = 0
+  (1..limit).each do |n|
+    if sums.index(n).nil?
+      sum += n
+    end
+  end
+  return sum
 end
 
 limit = 28123
