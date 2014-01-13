@@ -1,0 +1,8 @@
+# gitignore file
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
+.tests
