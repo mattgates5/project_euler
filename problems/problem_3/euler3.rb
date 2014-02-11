@@ -11,21 +11,26 @@
 
 require 'prime'
 
-n = ARGV[0].to_i
-if n.zero?
-  abort("Numeric input expected")
+#f = 0
+#2.step(n,1).each do |x|
+#  if (n == 1)
+#    break
+#  end
+#  if (x.prime? && (n % x == 0))
+#    f = x
+#    n /= x
+#    #puts n.to_s
+#  end
+#end
+
+#puts f.to_s
+
+
+def problem3 n
+  2.step(n,1).each do |x|
+    return x-1 if n == 1
+    n /= x if x.prime? && (n % x == 0)
+  end
 end
 
-f = 0
-2.step(n,1).each do |x|
-  if (n == 1)
-    break
-  end
-  if (x.prime? && (n % x == 0))
-    f = x
-    n /= x
-    #puts n.to_s
-  end
-end
-
-puts f.to_s
+p problem3 600851475143
