@@ -9,3 +9,5 @@
 def problem1 limit
   (0...limit).map {|n| (n%3==0 || n%5==0) ? n : 0 }.reduce(:+)
 end
+
+p problem1 1000
